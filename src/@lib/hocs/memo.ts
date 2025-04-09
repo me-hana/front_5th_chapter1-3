@@ -12,13 +12,14 @@ export function memo<P extends object>(
       null,
     );
 
+    const result = Component(props) as React.ReactElement;
+    
     // 1. 이전 값이 있고, props가 같다면 캐시된 결과 반환
     if (previous.current && equals(previous.current.props, props)) {
       return previous.current.result;
     }
 
     // 2. 아니면 새로 렌더해서 결과 저장
-    const result = Component(props) as React.ReactElement;
     previous.current = { props, result };
     return result;
   };
