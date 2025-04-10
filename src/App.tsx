@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { generateItems } from "./utils";
 
-import { ThemeProvider } from "./providers/ThemeProvider";
-import { UserProvider } from "./providers/UserProvider";
-import { NotificationProvider } from "./providers/NotificationProvider";
+import { ThemeContextProvider } from "./contexts/ThemeContext";
+import { AuthContextProvider } from "./contexts/AuthContext";
+import { NotificationContextProvider } from "./contexts/NotificationContext";
 import { AppShell } from "./AppShell";
 
 // 메인 App 컴포넌트
@@ -18,13 +18,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <ThemeProvider>
-      <UserProvider>
-        <NotificationProvider>
+    <ThemeContextProvider>
+        <NotificationContextProvider>
+      <AuthContextProvider>
           <AppShell items={items} onAddItemsClick={addItems} />
-        </NotificationProvider>
-      </UserProvider>
-    </ThemeProvider>
+      </AuthContextProvider>
+        </NotificationContextProvider>
+    </ThemeContextProvider>
   );
 };
 
