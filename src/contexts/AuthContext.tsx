@@ -4,7 +4,7 @@ import { AuthContextType, ContextProps, User } from "../types";
 import { useNotifications } from "../hooks/useNotifications";
 
 export const AuthContext = createContext<AuthContextType | undefined>(
-  undefined
+  undefined,
 );
 
 export const AuthContextProvider = ({ children }: ContextProps) => {
@@ -16,7 +16,7 @@ export const AuthContextProvider = ({ children }: ContextProps) => {
       setUser({ id: 1, name: "홍길동", email });
       addNotification("성공적으로 로그인되었습니다", "success");
     },
-    [setUser, addNotification]
+    [setUser, addNotification],
   );
 
   const logout = useCallback(() => {
@@ -30,7 +30,7 @@ export const AuthContextProvider = ({ children }: ContextProps) => {
       login,
       logout,
     }),
-    [user, login, logout]
+    [user, login, logout],
   );
 
   return (

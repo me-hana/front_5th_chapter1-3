@@ -14,7 +14,7 @@ export const ItemList: React.FC<ItemListProps> = memo(
     const filteredItems = items.filter(
       (item) =>
         item.name.toLowerCase().includes(filter.toLowerCase()) ||
-        item.category.toLowerCase().includes(filter.toLowerCase())
+        item.category.toLowerCase().includes(filter.toLowerCase()),
     );
 
     const totalPrice = filteredItems.reduce((sum, item) => sum + item.price, 0);
@@ -59,5 +59,5 @@ export const ItemList: React.FC<ItemListProps> = memo(
         </ul>
       </div>
     );
-  }
+  },
 );

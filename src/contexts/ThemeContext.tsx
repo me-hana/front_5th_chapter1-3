@@ -3,7 +3,7 @@ import { useCallback, useMemo } from "../@lib";
 import { ThemeContextType, ContextProps } from "../types";
 
 export const ThemeContext = createContext<ThemeContextType | undefined>(
-  undefined
+  undefined,
 );
 
 export const ThemeContextProvider = ({ children }: ContextProps) => {
@@ -16,7 +16,7 @@ export const ThemeContextProvider = ({ children }: ContextProps) => {
       theme,
       toggleTheme,
     }),
-    [theme, toggleTheme]
+    [theme, toggleTheme],
   );
 
   return (

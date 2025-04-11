@@ -19,11 +19,11 @@ const App: React.FC = () => {
 
   return (
     <ThemeContextProvider>
-        <NotificationContextProvider>
-      <AuthContextProvider>
+      <NotificationContextProvider>
+        <AuthContextProvider>
           <AppShell items={items} onAddItemsClick={addItems} />
-      </AuthContextProvider>
-        </NotificationContextProvider>
+        </AuthContextProvider>
+      </NotificationContextProvider>
     </ThemeContextProvider>
   );
 };

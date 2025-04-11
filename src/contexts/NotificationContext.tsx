@@ -1,10 +1,6 @@
 import { createContext, useState } from "react";
 import { useCallback, useMemo } from "../@lib";
-import {
-  NotificationContextType,
-  ContextProps,
-  Notification,
-} from "../types";
+import { NotificationContextType, ContextProps, Notification } from "../types";
 
 export const NotificationContext = createContext<
   NotificationContextType | undefined
@@ -22,16 +18,16 @@ export const NotificationContextProvider = ({ children }: ContextProps) => {
       };
       setNotifications((prev) => [...prev, newNotification]);
     },
-    [setNotifications]
+    [setNotifications],
   );
 
   const removeNotification = useCallback(
     (id: number) => {
       setNotifications((prev) =>
-        prev.filter((notification) => notification.id !== id)
+        prev.filter((notification) => notification.id !== id),
       );
     },
-    [setNotifications]
+    [setNotifications],
   );
 
   const notificationCtxValue: NotificationContextType = useMemo(
@@ -40,7 +36,7 @@ export const NotificationContextProvider = ({ children }: ContextProps) => {
       addNotification,
       removeNotification,
     }),
-    [notifications, addNotification, removeNotification]
+    [notifications, addNotification, removeNotification],
   );
 
   return (

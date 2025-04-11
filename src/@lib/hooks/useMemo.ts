@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { DependencyList } from "react";
 import { shallowEquals } from "../equalities";
 import { useRef } from "./useRef";
@@ -6,7 +5,7 @@ import { useRef } from "./useRef";
 export function useMemo<T>(
   factory: () => T,
   deps: DependencyList,
-  equals = shallowEquals
+  equals = shallowEquals,
 ): T {
   // Step 1: 이전 deps와 결과를 저장할 ref 만들기
   const cache = useRef<{ deps: DependencyList; value: T } | null>(null);
